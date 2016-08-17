@@ -7,9 +7,9 @@ from subprocess import Popen, call, PIPE
 import re
 import ipaddress
 
-parser = argparse.ArgumentParser(description='todo')
+parser = argparse.ArgumentParser(description='Establish and try to maitain a remote host tunnel to calling machine')
 
-parser.add_argument('cloud_username', type=str, help='username to SSH into for cloud box')
+parser.add_argument('cloud_username', type=str, help='Username to SSH into for cloud box')
 
 parser.add_argument('cloud_ip', type=ipaddress.ip_address, help='IP address of cloud box')
 
