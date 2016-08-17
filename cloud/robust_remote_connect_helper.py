@@ -7,13 +7,13 @@ from subprocess import call
 
 parser = argparse.ArgumentParser(description='Handle reporting ssh remote forwarding dynamic ports for field boxes.')
 
-parser.add_argument('hostname', type=str, help='hostname of field box')
+parser.add_argument('hostname', type=str, help='Hostname of field box')
 
-parser.add_argument('--set-port', help='Port number on cloud machine ssh remote forwarded to a field box with the given hostname.')
+parser.add_argument('--set-port', help='Port number on cloud machine that is ssh remote forwarded to a field box with the given hostname.')
 
-parser.add_argument('--sleep', action='store_true', help='Port number on cloud machine ssh remote forwarded to a field box with the given hostname.')
+parser.add_argument('--sleep', action='store_true', help='Sleeps indefinitely, used to keep ssh connections open.')
 
-parser.add_argument('--allowed-command', nargs=argparse.REMAINDER, help='Port number on cloud machine ssh remote forwarded to a field box with the given hostname.')
+parser.add_argument('--allowed-command', nargs=argparse.REMAINDER, help='Runs a command if it is in the cloud/allowed-commands.conf whitelist')
 
 args = parser.parse_args()
 
