@@ -19,14 +19,15 @@ os.environ["AUTOSSH_GATETIME"] = "0"
 os.environ["AUTOSSH_POLL"] = "60" # poll for a connection every 60 seconds
 
 while True: # in case autossh returns
-    autossh_cmd = ["autossh", args.cloud_username + "@" + str(args.cloud_ip), "-R", "0:localhost:22", "--sleep"]
+    autossh_cmd = ["autossh", args.cloud_username + "@" + str(args.cloud_ip), "-R", "0:localhost:22", "sleep"]
     autossh_process = Popen(autossh_cmd, stderr=PIPE, universal_newlines=True)
 
     for line in autossh_process.stderr:
+        print(line)
         match = re.search("Allocated port ([0-9]*)", line)
         if match:
             port = match.group(1)
-            set_port_cmd = ['autossh', args.cloud_username + '@' + str(args.cloud_ip), '--set-port '+ port+ '']
+            set_port_cmd = ['autossh', args.cloud_username + '@' + str(args.cloud_ip), 'set-port --port '+ port]
             call(set_port_cmd) # autossh so automatically retries on poor connection
 
 
