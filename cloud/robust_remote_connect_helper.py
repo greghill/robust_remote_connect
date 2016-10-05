@@ -5,6 +5,8 @@ import os
 import sys
 from subprocess import call
 
+# This is the command that should be called on a cloud box when a field box SSH's into it. It should only be called by a human for debugging purposes
+
 parser = argparse.ArgumentParser(description='Handle reporting ssh remote forwarding dynamic ports for field boxes.')
 
 parser.add_argument('hostname', type=str, help='Hostname of field box')
