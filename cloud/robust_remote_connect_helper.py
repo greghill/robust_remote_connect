@@ -50,7 +50,7 @@ if args.action == "allowed-command":
     allowed_commands = open(os.path.join(sys.path[0], "allowed-commands.conf"), "r").read().splitlines()
     for allowed_command in allowed_commands:
         if command_to_check == allowed_command:
-            print("Command: " + command_to_check + " found in cloud/allowed-commands.conf. Calling it with added arguments..")
+            print("Command: " + command_to_check + " found in cloud/allowed-commands.conf.\nCalling it with added arguments: " + ' '.join(args.command) )
             call(args.command)
             exit(0)
     print("Command: " + command_to_check + " not in cloud/allowed-commands.conf")
