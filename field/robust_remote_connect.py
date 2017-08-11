@@ -29,9 +29,9 @@ while True: # in case autossh returns
         match = re.search("Allocated port ([0-9]*)", line)
         if match:
             port = match.group(1)
-            set_port_cmd = "sh -c 'echo %s > /tmp/remote_connect_ports/%s'" % (port, gethostname())
+            set_port_cmd = 'echo %s > /tmp/.%s.remote_connect_port' % (port, gethostname())
 
-            set_port_cmd = "autossh %s@%s %s" % (args.cloud_username, str(args.cloud_ip), set_port_cmd)
+            set_port_cmd = 'autossh %s@%s \"%s\"' % (args.cloud_username, str(args.cloud_ip), set_port_cmd)
             call(set_port_cmd, shell=True) # autossh so automatically retries on poor connection
 
     autossh_process.wait()
