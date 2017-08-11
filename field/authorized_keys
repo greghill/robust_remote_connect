@@ -1,4 +1,0 @@
-# Put command restricted keys for remote machines here, keys should be prepended by:
-# command="~/robust_remote_connect/cloud/robust_remote_connect_helper.py [hostname] $SSH_ORIGINAL_COMMAND",
-# For example:
-# command="~/robust_remote_connect/cloud/robust_remote_connect_helper.py computer1 $SSH_ORIGINAL_COMMAND", ssh-rsa AAAB3Nnotarealkeylc8iucBg3KWcFbkQa7dBwjAs76BYRZsZ9vmzUKnfDds4m6GBevk8Mc7Wp user@computer1
